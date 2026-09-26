@@ -6,7 +6,7 @@ import {
   newTask,
   task,
   updateDoneTask,
-} from "./controller/user-controller.js";
+} from "./controller/task-controller.js";
 
 export const router = Router();
 
