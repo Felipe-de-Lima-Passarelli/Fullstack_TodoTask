@@ -9,7 +9,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:3001",
-      "https://fullstack-todo-task-three.vercel.app",
+      "https://fullstack-todo-task-fadv3maif.vercel.app",
     ],
     credentials: true,
   }),
