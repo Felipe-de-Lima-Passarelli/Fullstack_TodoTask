@@ -255,7 +255,7 @@ export default function Home() {
           </div>
           <div className="bg-[#F4F4F4] h-2">
             <div
-              className={`h-full bg-[#187EFA]`}
+              className={`h-full ${taskList.length !== 0 && "bg-[#187EFA]"}`}
               style={{
                 width: `${(taskList.filter((task) => task.done === true).length / taskList.length) * 100}%`,
               }}

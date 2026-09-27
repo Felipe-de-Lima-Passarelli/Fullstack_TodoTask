@@ -7,7 +7,10 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["http://localhost:3001", "VERCEL URL"],
+    origin: [
+      "http://localhost:3001",
+      "https://fullstack-todo-task-three.vercel.app",
+    ],
     credentials: true,
   }),
 );

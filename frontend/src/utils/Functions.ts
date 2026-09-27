@@ -9,7 +9,7 @@ import {
 } from "@/utils/Types";
 
 export const getTasks = async ({ setTaskList }: getTaskProps) => {
-  const response = await fetch("http://localhost:3000/task");
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/task`);
   const data = await response.json();
 
   setTaskList(data);
@@ -20,11 +20,14 @@ export const addNewTask = async ({
   setNameTask,
   setTaskList,
 }: addNewTasProps) => {
-  const response = await fetch("http://localhost:3000/create-task", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ nameTask }),
-  });
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/create-task`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ nameTask }),
+    },
+  );
 
   const data = await response.json();
   console.log(data);
@@ -37,11 +40,14 @@ export const updateTask = async ({
   id,
   setTaskList,
 }: updateDeleteTaskProps) => {
-  const response = await fetch("http://localhost:3000/update-done-task", {
-    method: "PUT",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ id }),
-  });
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/update-done-task`,
+    {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id }),
+    },
+  );
 
   const data = await response.json();
   console.log(data);
@@ -54,11 +60,14 @@ export const updateNameTask = async ({
   actualNameTask,
   setTaskList,
 }: updateNameTaskProps) => {
-  const response = await fetch("http://localhost:3000/update-name-task", {
-    method: "PUT",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ actualIdTask, actualNameTask }),
-  });
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/update-name-task`,
+    {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ actualIdTask, actualNameTask }),
+    },
+  );
 
   const data = await response.json();
   console.log(data);
@@ -70,11 +79,14 @@ export const deleteTask = async ({
   id,
   setTaskList,
 }: updateDeleteTaskProps) => {
-  const response = await fetch("http://localhost:3000/delete-task", {
-    method: "DELETE",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ id }),
-  });
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/delete-task`,
+    {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id }),
+    },
+  );
 
   const data = await response.json();
   console.log(data);
@@ -83,9 +95,12 @@ export const deleteTask = async ({
 };
 
 export const deleteDoneTask = async ({ setTaskList }: deleteDoneTaskProps) => {
-  const response = await fetch("http://localhost:3000/delete-done-task", {
-    method: "DELETE",
-  });
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/delete-done-task`,
+    {
+      method: "DELETE",
+    },
+  );
 
   const data = await response.json();
   console.log(data);
